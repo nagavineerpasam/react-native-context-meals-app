@@ -1,0 +1,48 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "linebreak-style": 0,
+        "quotes": [
+            2,
+            "single"
+        ],
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "semi": [
+            2,
+            "always"
+        ],
+        "no-console": 1,
+        "max-len": ["error", { "code": 150}],
+        "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+        "react/style-prop-object": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/no-unstable-nested-components": [
+            "error",
+            { "allowAsProps": true }
+          ], // need to review
+        "react/prop-types": "off",  // need to remove -> for better coding
+        "no-use-before-define":"off" // need to remove this
+    }
+}
