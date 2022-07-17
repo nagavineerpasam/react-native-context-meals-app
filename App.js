@@ -5,11 +5,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Provider } from 'react-redux';
 import CategoriesScreens from './Screens/CategoriesScreen';
 import MealsOverView from './Screens/MealsOverView';
 import MealItemDetails from './Screens/MealItemDetails';
 import FavouriteScreen from './Screens/FavouriteScreen';
-import FavContextProvider from './store/context/fav-context';
+// import FavContextProvider from './store/context/fav-context';
+import store from './store/redux/store';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,14 +32,16 @@ export default function App() {
     return (
         <>
             <StatusBar style="dark" />
-            <FavContextProvider>
+            {/* <FavContextProvider> */}
+            <Provider store={store}>
                 <NavigationContainer>
                     <Tab.Navigator screenOptions={{ headerShown: false }}>
                         <Tab.Screen name="HOME" component={HomeNavigator} options={homeTabOptions} />
                         <Tab.Screen name="Favourite" component={FavouriteScreen} options={favTabOptions} />
                     </Tab.Navigator>
                 </NavigationContainer>
-            </FavContextProvider>
+            </Provider>
+            {/* </FavContextProvider> */}
         </>
     );
 }

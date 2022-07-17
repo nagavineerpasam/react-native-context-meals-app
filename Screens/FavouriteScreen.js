@@ -1,13 +1,15 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import {
     FlatList, Text, View, SafeAreaView,
 } from 'react-native';
+import { useSelector } from 'react-redux';
 import { MEALS } from '../data/dummy-data';
-import { FavContext } from '../store/context/fav-context';
+// import { FavContext } from '../store/context/fav-context';
 
 function FavouriteScreen() {
-    const favMealIds = useContext(FavContext);
-    const { ids } = favMealIds;
+    // const favMealIds = useContext(FavContext);
+    // const { ids } = favMealIds;
+    const ids = useSelector((state) => state.favReducer);
     const mealsList = MEALS.filter((meal) => ids.includes(meal.id));
     const renderItem = ({ item }) => <Text>{item.title}</Text>;
     return (
